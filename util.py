@@ -18,7 +18,7 @@ def check_path(path):
         os.makedirs(path)
         
 def check_folder(path):
-    path_n = '/'.join(path.split('/')[:-1])
+    path_n = '\\'.join(path.split('\\')[:-1])
     check_path(path_n)
 
 def cal_score(clean,enhanced):

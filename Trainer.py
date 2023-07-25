@@ -136,7 +136,7 @@ class Trainer:
         
         self.model.eval()
         noisy, sr = librosa.load(test_file,sr=16000)
-        clean, sr = librosa.load(os.path.join(clean_path, test_file.split('/')[-1]),sr=16000)
+        clean, sr = librosa.load(os.path.join(clean_path, test_file.split('\\')[-1]),sr=16000)
         log1p_y, y_phase, y_len = make_spectrum(y=noisy,feature_type ='log1p')
         
         log1p_y_1 = torch.from_numpy(log1p_y).cuda().detach().transpose(0,1)
@@ -149,7 +149,7 @@ class Trainer:
             pred_clean = recons_spec_phase(pred*log1p_y, y_phase, y_len, feature_type='log1p')
 
         if self.save_results == 'True':
-            out_a_path = os.path.join(audio_path,  f"{test_file.split('/')[-1].split('.')[0]+'.wav'}")
+            out_a_path = os.path.join(audio_path, test_file.split('\\')[-1])
             check_folder(out_a_path)
             audiowrite(out_a_path,16000,(pred_clean* maxv).astype(np.int16))
 
@@ -161,7 +161,7 @@ class Trainer:
         n_pesq, n_stoi = cal_score(clean,noisy)
         s_pesq, s_stoi = cal_score(clean,pred_clean_wav)
         
-        wave_name = test_file.split('/')[-1].split('.')[0]
+        wave_name = test_file.split('\\')[-1].split('.')[0]
         with open(self.score_path['PESQ'], 'a') as f:
             f.write(f'{wave_name},{n_pesq},{s_pesq}\n')
         with open(self.score_path['STOI'], 'a') as f:

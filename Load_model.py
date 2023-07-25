@@ -116,7 +116,7 @@ class CustomDataset(Dataset):
     def __init__(self, paths, clean_path):   # initial logic happens like transform
         
         self.n_paths = paths
-        self.c_paths = [os.path.join(clean_path, noisy_path.split('/')[-1]) for noisy_path in paths]
+        self.c_paths = [os.path.join(clean_path, noisy_path.split('\\')[-1]) for noisy_path in paths]
     def __getitem__(self, index):
         
         noisy, sr = librosa.load(self.n_paths[index],sr=16000)
