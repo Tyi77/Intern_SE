@@ -72,13 +72,13 @@ if __name__ == '__main__':
     
     # data path
     Train_path = {
-    'noisy':'C:\\D\\77_Program\\Intern\\Intern_SE\\VCTK_28spk\\noisy_trainset_wav', # input
-    'clean':'C:\\D\\77_Program\\Intern\\Intern_SE\\VCTK_28spk\\clean_trainset_wav' # target
+    'noisy':'VCTK_28spk\\noisy_trainset_wav', # input
+    'clean':'VCTK_28spk\\clean_trainset_wav' # target
     } 
 
     Test_path = {
-    'noisy':'C:\\D\\77_Program\\Intern\\Intern_SE\\VCTK_28spk\\noisy_testset_wav',
-    'clean':'C:\\D\\77_Program\\Intern\\Intern_SE\\VCTK_28spk\\clean_testset_wav'
+    'noisy':'VCTK_28spk\\noisy_testset_wav',
+    'clean':'VCTK_28spk\\clean_testset_wav'
     }
         
     Output_path = {
